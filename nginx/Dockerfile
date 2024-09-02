@@ -2,7 +2,7 @@ FROM nginx AS proxi-reverso
 
 WORKDIR /etc/nginx
 
-RUN rm /etc/nginx/conf.d/default.conf
+# RUN rm /etc/nginx/conf.d/default.conf
 
 RUN apt-get update         && \
     apt-get install -y vim
@@ -10,6 +10,8 @@ RUN apt-get update         && \
 # RUN ln -s /etc/nginx/sites-available/myserver.config /etc/nginx/sites-enabled/
 
 COPY nginx.conf /etc/nginx/
+COPY nginx.conf /etc/nginx/conf.d
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 8080
 
