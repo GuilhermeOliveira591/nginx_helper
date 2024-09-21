@@ -6,6 +6,9 @@ COPY . .
 
 RUN cd /usr/src/app
 
+#RUN apt-get install npm -y
+
+RUN npm install
 RUN npm install mysql2 --save
 
 ENV DOCKERIZE_VERSION v0.8.0

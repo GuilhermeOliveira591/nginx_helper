@@ -40,6 +40,8 @@ services:
             - ./bd:/var/lib/mysql
         networks:
             - rede-desafio-2
+        ports:
+            - "3306:3306"
         environment:
             - MYSQL_DATABASE=dbpeople
             - MYSQL_ROOT_PASSWORD=root
