@@ -21,8 +21,6 @@ services:
         container_name: app
         networks:
             - rede-desafio-2
-        ports:
-            - "3000:3000"
         tty: true
         entrypoint: dockerize -wait tcp://sgbd:3306 -timeout 30s node index.js
         volumes:
@@ -40,8 +38,6 @@ services:
             - ./bd:/var/lib/mysql
         networks:
             - rede-desafio-2
-        ports:
-            - "3306:3306"
         environment:
             - MYSQL_DATABASE=dbpeople
             - MYSQL_ROOT_PASSWORD=root

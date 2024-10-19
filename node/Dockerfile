@@ -6,8 +6,6 @@ COPY . .
 
 RUN cd /usr/src/app
 
-#RUN apt-get install npm -y
-
 RUN npm install
 RUN npm install mysql2 --save
 
@@ -19,5 +17,3 @@ RUN apt-get update \
     && apt-get autoremove -yqq --purge wget && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 3000
-
-# CMD ["node", "index.js"]
