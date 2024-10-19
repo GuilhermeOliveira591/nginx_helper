@@ -1,6 +1,6 @@
 Resposta ao desafio 2 do módulo Docker do curso Full Cycle 3.0
 
 Imagens docker em
-https://hub.docker.com/repository/docker/adrianoluisdasilva/proxy-reverso
-https://hub.docker.com/repository/docker/adrianoluisdasilva/app
-https://hub.docker.com/repository/docker/adrianoluisdasilva/sgbd
+https://hub.docker.com/repository/docker/adrianoluisdasilva/proxy-reverso<br>
+https://hub.docker.com/repository/docker/adrianoluisdasilva/app<br>
+https://hub.docker.com/repository/docker/adrianoluisdasilva/sgbd<br>
