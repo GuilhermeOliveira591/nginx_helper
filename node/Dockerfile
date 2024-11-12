@@ -8,6 +8,7 @@ RUN cd /usr/src/app
 
 RUN npm install
 RUN npm install mysql2 --save
+RUN npm install express
 
 ENV DOCKERIZE_VERSION v0.8.0
 

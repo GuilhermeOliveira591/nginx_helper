@@ -25,6 +25,7 @@ services:
         entrypoint: dockerize -wait tcp://sgbd:3306 -timeout 30s node index.js
         volumes:
             - ./node:/usr/src/app
+            - ./node:/usr/src/app/node_modules
         depends_on:
             - sgbd
 
