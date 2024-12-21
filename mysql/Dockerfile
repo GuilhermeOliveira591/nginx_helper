@@ -1,8 +1,7 @@
 FROM mysql
 
 WORKDIR /var/lib/mysql
-VOLUME ["/var/lib/mysql"]
 
-COPY bd/ .
+ADD bd/ .
 
 CMD ["--innodb-use-native-aio=0"]
