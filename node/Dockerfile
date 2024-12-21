@@ -2,9 +2,9 @@ FROM node
 
 WORKDIR /usr/src/app
 
-COPY . .
-
 RUN cd /usr/src/app
+
+COPY . .
 
 RUN npm install
 RUN npm install mysql2 --save
