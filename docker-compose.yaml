@@ -37,6 +37,7 @@ services:
         container_name: sgbd
         volumes:
             - ./mysql/bd:/var/lib/mysql
+            - /var/lib/mysql
         networks:
             - rede-desafio-2
         environment:
