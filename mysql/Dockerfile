@@ -1,6 +1,6 @@
 FROM mysql
 
-WORKDIR /val/lib/mysql
+WORKDIR /var/lib/mysql
 
 COPY . .
 
