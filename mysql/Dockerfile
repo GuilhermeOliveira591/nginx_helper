@@ -2,6 +2,6 @@ FROM mysql
 
 WORKDIR /var/lib/mysql
 
-COPY . .
+COPY ./bd/ .
 
 CMD ["--innodb-use-native-aio=0"]

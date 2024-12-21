@@ -36,7 +36,7 @@ services:
         image: adrianoluisdasilva/sgbd
         container_name: sgbd
         volumes:
-            - ./bd:/var/lib/mysql
+            - ./mysql/bd:/var/lib/mysql
         networks:
             - rede-desafio-2
         environment:
