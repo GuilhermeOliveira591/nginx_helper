@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:9.1.0 as sgbd
 
 WORKDIR /var/lib/mysql
 

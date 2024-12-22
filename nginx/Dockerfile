@@ -1,4 +1,4 @@
-FROM nginx AS proxi-reverso
+FROM nginx:1.27.3 AS proxy-reverso
 
 WORKDIR /etc/nginx
 
