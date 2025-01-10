@@ -4,7 +4,6 @@ services:
         build:
             context: ./nginx
             dockerfile: Dockerfile
-        image: adrianoluisdasilva/proxy-reverso
         container_name: proxy-reverso
         networks:
             - rede-desafio-2
@@ -17,7 +16,6 @@ services:
         build:
             context: ./node
             dockerfile: Dockerfile
-        image: adrianoluisdasilva/app
         container_name: app
         networks:
             - rede-desafio-2
@@ -30,19 +28,17 @@ services:
             - sgbd
 
     sgbd:
-        build:
-            context: ./mysql
-            dockerfile: Dockerfile
-        image: adrianoluisdasilva/sgbd
+        image: mysql:5.7
+        command: --innodb-use-native-aio=0
         container_name: sgbd
         volumes:
-            - ./mysql/bd:/var/lib/mysql
+            - ./mysql:/var/lib/mysql
+            - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
         networks:
             - rede-desafio-2
         environment:
             - MYSQL_DATABASE=dbpeople
             - MYSQL_ROOT_PASSWORD=root
-            - MYSQL_ALLOW_EMPTY_PASSWORD=1
         restart: always
         tty: true
 

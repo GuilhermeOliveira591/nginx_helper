@@ -1,44 +1,32 @@
-const express = require('express')
-const app = express()
-const port = 3000
+const express = require('express');
+const app = express();
+const port = 3000;
 const config = {
     host: 'sgbd',
     user: 'root',
     password: 'root',
     database: 'dbpeople'
 };
-const mysql = require('mysql2')
-const connection = mysql.createConnection(config)
+const mysql = require('mysql2');
+const connection = mysql.createConnection(config);
 
-//const sql = `INSERT into people(name) values ('Wesley')`
-//connection.query(sql)
-//connection.end
+app.get('/', (req, res) => {
+    connection.query('SELECT * FROM people', function (err, result, fields) {
+        if (err) {
+            console.error('Erro na consulta:', err);
+            return res.status(500).send('Erro na consulta ao banco de dados');
+        }
 
-//const connection = mysql.createConnection(config)
-/*
-app.get('/', (req, res) =>{
-    res.send('<h1>Full Cycle rocks !</h1> <br> <br>')
-})
-*/
+        let htmlResponse = '<h1>Full Cycle rocks !</h1><ul>';
+        result.forEach(row => {
+            htmlResponse += `<li>${row.name}</li>`;
+        });
+        htmlResponse += '</ul>';
 
-app.get('/', (req, res) =>{
-    const query = connection.query(`select * from people`, function (err, result, fields) {
-        //if (err) throw err
-        console.log(result)
-        res.json(result)
-    })
-})
-
-connection.end
-
-/*
-    query.on('result', (row) => {
-        console.log(row.id + '-' + row.name)
-        res.send(row.id + '-' + row.name)
-    })
-*/
-
+        res.send(htmlResponse);
+    });
+});
 
 app.listen(port, () => {
-    console.log('Rodando na porta ' + port)
-})
+    console.log('Rodando na porta ' + port);
+});
